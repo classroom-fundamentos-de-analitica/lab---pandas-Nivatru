@@ -34,10 +34,11 @@ def pregunta_02():
     4
 
     """
-    return
+    return len(tbl0.columns)
 
 
 def pregunta_03():
+    rta = tbl0.pivot_table(columns=['_c1'], aggfunc='size')
     """
     ¿Cuál es la cantidad de registros por cada letra de la columna _c1 del archivo
     `tbl0.tsv`?
@@ -51,7 +52,7 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return
+    return rta
 
 
 def pregunta_04():
