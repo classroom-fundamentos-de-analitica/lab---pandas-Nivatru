@@ -190,6 +190,10 @@ def pregunta_10():
 
 
 def pregunta_11():
+    df = tbl1[["_c0", "_c4"]]
+    df = df.sort_values(by=['_c4'])
+    df['_c4'] = df.groupby(['_c0'])['_c4'].transform(lambda x: ','.join(x))
+    df = df.drop_duplicates().sort_values(by=["_c0"])
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
     la columna _c4 del archivo `tbl1.tsv`.
@@ -205,7 +209,7 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+    return df
 
 
 def pregunta_12():
