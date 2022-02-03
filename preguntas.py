@@ -143,6 +143,12 @@ def pregunta_08():
 
 
 def pregunta_09():
+
+    tbl3 = tbl0.copy()
+    tbl3 = tbl3["_c3"]
+    for i in range(0, len(tbl3)):
+        tbl3.iloc[i] = tbl3.iloc[i][:4]
+    tbl0["year"] = tbl3
     """
     Agregue el año como una columna al archivo `tbl0.tsv`.
 
@@ -157,7 +163,7 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    return
+    return tbl0
 
 
 def pregunta_10():
