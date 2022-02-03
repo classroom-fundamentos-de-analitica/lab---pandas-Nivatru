@@ -90,6 +90,8 @@ def pregunta_05():
 
 
 def pregunta_06():
+    tbl1["_c4"] = tbl1["_c4"].str.upper()
+    rta = sorted(list(set(tbl1["_c4"].tolist())))
     """
     Retorne una lista con los valores unicos de la columna _c4 de del archivo `tbl1.csv`
     en mayusculas y ordenados alfabéticamente.
@@ -98,7 +100,7 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+    return rta
 
 
 def pregunta_07():
