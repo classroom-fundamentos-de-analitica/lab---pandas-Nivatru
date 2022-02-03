@@ -213,6 +213,13 @@ def pregunta_11():
 
 
 def pregunta_12():
+    df = tbl2
+    df["_c5b"] = df["_c5b"].map(str)
+    df["_c5"] = df[["_c5a", "_c5b"]].agg(':'.join, axis=1)
+    df = df[["_c0", "_c5"]]
+    df = df.sort_values(by=["_c5"])
+    df["_c5"] = df.groupby(["_c0"])["_c5"].transform(lambda x: ','.join(x))
+    df = df.drop_duplicates().sort_values(by=["_c0"]).reset_index(drop=True)
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
     la columna _c5a y _c5b (unidos por ':') de la tabla `tbl2.tsv`.
@@ -227,7 +234,7 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    return df
 
 
 def pregunta_13():
