@@ -56,8 +56,8 @@ def pregunta_03():
 
 
 def pregunta_04():
-    tbl3 = tbl0[["_c1", "_c2"]]
-    rta = tbl3.groupby("_c1").mean()
+
+    rta = tbl0.groupby("_c1")["_c2"].mean()
     """
     Calcule el promedio de _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
 
