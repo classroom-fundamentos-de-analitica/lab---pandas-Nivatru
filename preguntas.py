@@ -167,6 +167,13 @@ def pregunta_09():
 
 
 def pregunta_10():
+    df = tbl0[["_c1", "_c2"]]
+    df = df.sort_values(by=['_c2'], ascending=True)
+    df["_c2"] = df["_c2"].map(str)
+    df['_c2'] = df.groupby(['_c1'])['_c2'].transform(lambda x: ':'.join(x))
+    df = df.drop_duplicates()
+    df = df.sort_values(by=["_c1"], ascending=True)
+    df = df.reset_index(drop=True)
     """
     Construya una tabla que contenga _c1 y una lista separada por ':' de los valores de
     la columna _c2 para el archivo `tbl0.tsv`.
@@ -180,7 +187,7 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return
+    return df
 
 
 def pregunta_11():
